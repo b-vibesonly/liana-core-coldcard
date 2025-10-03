@@ -102,7 +102,9 @@ Now we’ll generate a PSBT that sweeps all funds to:
 Include the inputs and sequence values from the previous step, and set a fee rate (10 sats/vB in this example):
 
 ```bash
-bitcoin-cli -signet -named -rpcwallet=liana_recovery sendall   recipients='["tb1qzhequ5d2cdenah4t5e4as90fhygeuflej80egh"]'   options='{
+bitcoin-cli -signet -named -rpcwallet=liana_recovery sendall \
+  recipients='["tb1qzhequ5d2cdenah4t5e4as90fhygeuflej80egh"]' \
+  options='{
     "add_to_wallet": false,
     "fee_rate": 10,
     "inputs": [
@@ -136,9 +138,9 @@ Almost done!
 ---
 
 ## 5. Broadcast the Signed PSBT
-The Coldcard will create a file such as `recover-all-part.psbt`. Extract the signed PSBT.  
+The Coldcard will create a file such as `recover-all-part.psbt`. Copy the signed PSBT data from the file.  
 
-Finalize with Bitcoin Core:
+Finalize the PSBT with Bitcoin Core:
 
 ```bash
 bitcoin-cli -signet -rpcwallet=liana_recovery finalizepsbt cHNidP...qxoaAAA
@@ -153,7 +155,7 @@ If successful, you’ll see a transaction hex and `"complete": true`:
 }
 ```
 
-Finally, broadcast:
+Finally, broadcast the hex data:
 
 ```bash
 bitcoin-cli -signet -rpcwallet=liana_recovery sendrawtransaction 02...0000
