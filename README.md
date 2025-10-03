@@ -45,7 +45,7 @@ For reference, this is the policy enforced by the descriptor:
 
 ---
 
-## 2. Create Wallet with Liana & Rescan
+## 2. Create Wallet in Bitcoin Core & Rescan
 * Create a wallet in Bitcoin Core:  
 
 ```bash
@@ -131,7 +131,9 @@ This will output a PSBT:
 }
 ```
 
-Save the PSBT (everything inside the double quotes) to an SD card file, e.g., `recover-all.psbt`. Sign it with the Coldcard. 
+Save the PSBT (everything inside the double quotes) to an SD card file, e.g., `recover-all.psbt`. 
+
+Sign it with the Coldcard. 
 
 Almost done!
 
